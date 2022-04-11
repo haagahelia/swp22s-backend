@@ -1,1 +1,3 @@
 DROP TABLE Task;
+
+DROP TABLE Country;

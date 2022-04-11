@@ -1,1 +1,3 @@
 DELETE FROM Task;
+
+DELETE FROM Country;
