@@ -1,3 +1,3 @@
-DESCRIBE `Order`;
+DESCRIBE Task;
 
-SELECT * FROM `Order`;
+SELECT * FROM Task;
