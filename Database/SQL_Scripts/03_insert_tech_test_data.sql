@@ -4,7 +4,7 @@ INSERT INTO DeliveryTask
     (   uuid,
         order_type,
         country_code,
-        created_at,
+
         pu_datetime,
         pu_address,
     )
@@ -12,21 +12,21 @@ INSERT INTO DeliveryTask
     (   '620a6836cd684f6e0a7efebe',
         'restaurant',
         'FIN',
-        NULL,
+
         '2022-04-12 08:20',
         'Kotitie 3, 99200 Oulu'),
 
     (   '780a7777cd684f6e0a7efaaa',
         'restaurant',
         'FIN',
-        NULL,
+
         '2022-04-12 08:20',
         'Aurakatu 111, 00520 Helsinki'),
     
     (   '324852348sdfsaf8qwe57erf',
         'restaurant',
         'FIN',
-        NULL,
+
         '2022-04-12 08:20',
         'Hupsubulevardi 800 A 3, 00770 Helsinki')
 ;

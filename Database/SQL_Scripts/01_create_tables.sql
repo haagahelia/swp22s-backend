@@ -17,7 +17,6 @@ if not needed, of course we can remove it
 */
 
 /* Juhani: What is TIMESTAMP   NULL,  ?  
-And wasn't pu_signature_image BLOB?
 */
 
 CREATE TABLE IF NOT EXISTS DeliveryTask (
@@ -25,7 +24,7 @@ CREATE TABLE IF NOT EXISTS DeliveryTask (
     order_type          VARCHAR(25)     NOT NULL,
     country_code        CHAR(3)         NOT NULL,
     created_at          TIMESTAMP       DEFAULT CURRENT_TIMESTAMP(),
-    pu_datetime         TIMESTAMP       NOT NULL,
+    pu_datetime         TIMESTAMP       NULL,
     pu_address          VARCHAR(255)    NOT NULL,   
 
     pu_signature_image  TEXT,
