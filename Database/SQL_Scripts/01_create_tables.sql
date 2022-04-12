@@ -25,8 +25,9 @@ CREATE TABLE IF NOT EXISTS Task (
     order_type          VARCHAR(25)     NOT NULL,
     country_code        CHAR(3)         NOT NULL,
     created_at          TIMESTAMP       DEFAULT CURRENT_TIMESTAMP(),
-    pu_datetime         TIMESTAMP       NULL,
-    pu_address          VARCHAR(255),   
+    pu_datetime         TIMESTAMP       NOT NULL,
+    pu_address          VARCHAR(255)    NOT NULL,   
+    
     pu_signature_image  TEXT,
     pu_signed_at        TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(),
     
