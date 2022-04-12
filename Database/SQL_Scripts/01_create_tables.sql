@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS Task (
     created_at          TIMESTAMP       DEFAULT CURRENT_TIMESTAMP(),
     pu_datetime         TIMESTAMP       NOT NULL,
     pu_address          VARCHAR(255)    NOT NULL,   
-    
+
     pu_signature_image  TEXT,
-    pu_signed_at        TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(),
+    pu_signed_at        TIMESTAMP       ON UPDATE CURRENT_TIMESTAMP(),
     
     CONSTRAINT pk_Task PRIMARY KEY (uuid),
     CONSTRAINT fk_OrderType FOREIGN KEY (order_type) REFERENCES OrderType(order_type),
