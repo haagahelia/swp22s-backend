@@ -6,11 +6,13 @@ INSERT INTO Task
         country_code,
 
         pu_datetime,
-        pu_address,
+        pu_address
     )
     VALUES 
     (   '620a6836cd684f6e0a7efebe',
-        'restaurant','FIN',
+        'restaurant',
+        'FIN',
+        
         '2022-04-12 08:20',
         'Kotitie 3, 99200 Oulu'),
 
