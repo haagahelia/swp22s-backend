@@ -1,8 +1,8 @@
 /* These are not yet signed ones */
 
 INSERT INTO Task 
-    (   uuid, 
-        order_type, 
+    (   uuid,
+        order_type,
         country_code,
         pu_datetime,
         pu_address,
