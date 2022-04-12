@@ -20,7 +20,7 @@ if not needed, of course we can remove it
 And wasn't pu_signature_image BLOB?
 */
 
-CREATE TABLE IF NOT EXISTS Task (
+CREATE TABLE IF NOT EXISTS DeliveryTask (
     uuid                CHAR(24)        UNIQUE NOT NULL,
     order_type          VARCHAR(25)     NOT NULL,
     country_code        CHAR(3)         NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Task (
 );
 
 /*
-CREATE TABLE Task 
+CREATE TABLE DeliveryTask 
 (
     uuid        CHAR(24)        UNIQUE NOT NULL,
     pu_address  VARCHAR(255)    NOT NULL,

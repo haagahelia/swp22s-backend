@@ -1,1 +1,1 @@
-DELETE FROM Task;
+DELETE FROM DeliveryTask;

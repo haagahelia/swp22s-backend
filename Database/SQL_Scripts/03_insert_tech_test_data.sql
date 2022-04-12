@@ -1,6 +1,6 @@
 /* These are not yet signed ones */
 
-INSERT INTO Task 
+INSERT INTO DeliveryTask 
     (   uuid,
         order_type,
         country_code,
@@ -29,7 +29,7 @@ INSERT INTO Task
 
 
 /* These are completed courier tasks, from zero to hero */
-INSERT INTO Task 
+INSERT INTO DeliveryTask 
     (   uuid, 
         order_type, 
         country_code,
