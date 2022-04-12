@@ -5,7 +5,7 @@ INSERT INTO Task
         order_type,
         country_code,
 
-        pu_datetime,
+        pu_planned_time,
         pu_address
     )
     VALUES 
@@ -38,7 +38,7 @@ INSERT INTO Task
         order_type, 
         country_code,
         created_at, 
-        pu_datetime,
+        pu_planned_time,
         pu_address,
         pu_signature_image,
         pu_signed_at
