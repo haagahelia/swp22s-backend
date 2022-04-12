@@ -1,3 +1,4 @@
+/* --- CREATE TABLES --- */
 CREATE TABLE IF NOT EXISTS Country (
     id          CHAR(3)         NOT NULL,
     name        VARCHAR(60)     UNIQUE NOT NULL,
@@ -14,9 +15,6 @@ CREATE TABLE IF NOT EXISTS OrderType (
 /*
 I added created_at column just to know when the Task is created,
 if not needed, of course we can remove it
-*/
-
-/* Juhani: What is TIMESTAMP   NULL,  ?  
 */
 
 CREATE TABLE IF NOT EXISTS Task (

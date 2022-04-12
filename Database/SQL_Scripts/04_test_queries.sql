@@ -1,3 +1,5 @@
+DESCRIBE Country;
+DESCRIBE OrderType;
 DESCRIBE Task;
 
 SELECT * FROM Task;
