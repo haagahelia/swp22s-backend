@@ -1,11 +1,3 @@
-INSERT INTO Task (uuid, pu_address)
-    VALUES 
-    ('620a6836cd684f6e0a7efebe',
-        'Kotitie 3, 99200 Oulu'),
-    ('780a7777cd684f6e0a7efaaa',
-        'Aurakatu 111, 00520 Helsinki')
-;
-
 INSERT INTO Country (id, name)
 VALUES
     ('AUS', 'Australia'),
@@ -21,6 +13,22 @@ VALUES
     ('LUX', 'Luxembourg'),
     ('MDG', 'Madagascar'),
     ('VNM', 'Viet Nam');
+
+INSERT INTO OrderType (order_type)
+VALUES
+    ('drive'),
+    ('restaurant'),
+    ('retail');
+
+INSERT INTO Task (uuid, pu_address)
+    VALUES 
+    ('620a6836cd684f6e0a7efebe',
+        'Kotitie 3, 99200 Oulu'),
+    ('780a7777cd684f6e0a7efaaa',
+        'Aurakatu 111, 00520 Helsinki')
+;
+
+
 
 INSERT INTO Task (uuid, order_type, country_code, pu_signature_image)
 VALUES 
