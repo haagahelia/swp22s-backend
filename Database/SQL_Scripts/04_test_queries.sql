@@ -10,3 +10,5 @@ the datetime is updated automatically
 UPDATE Task
 SET pu_signature_image = 'iVBORw0KGgoAAAANSUhEUgAABPAAAAK8CAYAAABhiUEuAAAAAXNSR0IArs4c6QAAIABJREFUeF7s3QnQNVtZH/p/bqwb9YqIigMgCIIaiB4ZIhrUI6VgIMhgAlGjAmLgqiEMGjSpugXn3kRFkXNwIIEbc8CJBMrAAQMORCQRlQQ8nqugTBJEcMCIQFTMUNx6oBv7bPY8ru7+raqv3u/73u7Vz/qtfve799Nr' 
 WHERE uuid = 'otttazldobll59mrjmrrjzck';
+
+SELECT * FROM Task;
