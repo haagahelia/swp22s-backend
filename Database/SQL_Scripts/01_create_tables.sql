@@ -2,13 +2,13 @@ CREATE TABLE IF NOT EXISTS Country (
     id          CHAR(3)         NOT NULL,
     name        VARCHAR(60)     UNIQUE NOT NULL,
 
-    CONSTRAINT pk_Country PRIMARY KEY (id)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS OrderType (
     order_type      VARCHAR(25)     NOT NULL,
     
-    CONSTRAINT pk_OrderType PRIMARY KEY (order_type)
+    PRIMARY KEY (order_type)
 );
 
 /*
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS DeliveryTask (
     pu_signature_image  TEXT,
     pu_signed_at        TIMESTAMP       ON UPDATE CURRENT_TIMESTAMP(),
     
-    CONSTRAINT pk_Task PRIMARY KEY (uuid),
+    PRIMARY KEY (uuid),
     CONSTRAINT fk_OrderType FOREIGN KEY (order_type) REFERENCES OrderType(order_type),
     CONSTRAINT fk_Country FOREIGN KEY (country_code) REFERENCES Country(id) 
 );
