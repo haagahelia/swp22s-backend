@@ -9,19 +9,18 @@ import {
 
 const signatureRouter = express()
 
-// GET ALL http:localhost:8787/api/signatures/all
-signatureRouter.get("", async (_, res) => {
-  try {
-    const signatures = await knex("Task")
-    return signatures
-      ? successHandler(res, signatures)
-      : requestErrorHandler(res, "404 - Request error. Data not found.")
-  } catch (err) {
-    databaseErrorHandler(res, err)
-  }
+// GET ALL http:localhost:8777/api/signature/
+signatureRouter.get("", (req, res) => {
+  knex("Task").select()
+  .then( (signatureArray) => {
+    successHandler(res, signatureArray, "GET /api/signature/ worked!")
+  })
+  .catch( (error) => {
+    databaseErrorHandler(res, error, "Could not get the signatures from DB!")
+  })
 })
 
-//GET ONE BY ID http:localhost:8777/api/signatures/:uuid
+//GET ONE BY ID http:localhost:8777/api/signature/:uuid
 signatureRouter.get("/:uuid", (req, res) => {
   if (!req.params.uuid) {
     requestErrorHandler(res, "400 Task's uuid is missing.");
@@ -29,7 +28,7 @@ signatureRouter.get("/:uuid", (req, res) => {
     knex("Task").select().where("uuid", req.params.uuid)
     .then( (signatureArray) => {
       if (signatureArray.length === 1) {
-        successHandler(res, signatureArray[0]);
+        successHandler(res, signatureArray[0], "GET /api/signature/:uuid worked!" );
       } else {
         requestErrorHandler(res, `404 - Task with uuid: ${req.params.uuid} not found.`);
       }
