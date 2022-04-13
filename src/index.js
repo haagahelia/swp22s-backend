@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import { logger } from "./utils/logger.js";
 import signatureRouter from "./routes/api/signatures.js";
 
+dotenv.config({});
+
 const app = express();
 
 app.use(express.json());
@@ -21,8 +23,6 @@ app.get("/", (_, res) => {
 })
 
 app.use(process.env.BE_API_URL_PREFIX + "/signatures", signatureRouter);
-
-dotenv.config();
 
 const PORT = process.env.PORT || 8787
 app.listen(PORT, () => {
