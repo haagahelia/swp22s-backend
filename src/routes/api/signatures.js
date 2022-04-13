@@ -21,7 +21,7 @@ signatureRouter.get("/all", async (_, res) => {
   }
 })
 
-//GET ONE BY ID http:localhost:8777/api/signatures/:id
+//GET ONE BY ID http:localhost:8777/api/signatures/:uuid
 signatureRouter.get("/:uuid", async (req, res) => {
   if (!req.params.uuid) {
     requestErrorHandler(res, "400 Task's uuid is missing.");
@@ -38,7 +38,7 @@ signatureRouter.get("/:uuid", async (req, res) => {
         requestErrorHandler(res, `404 - Task with uuid: ${req.params.uuid} not found.`);
       }
     } catch (error) {
-      databaseErrorHandler(res, error);
+      databaseErrorHandler(res, error, "Some database error happened");
     }
   }
 })
