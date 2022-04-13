@@ -22,24 +22,21 @@ signatureRouter.get("/all", async (_, res) => {
 })
 
 //GET ONE BY ID http:localhost:8777/api/signatures/:uuid
-signatureRouter.get("/:uuid", async (req, res) => {
+signatureRouter.get("/:uuid", (req, res) => {
   if (!req.params.uuid) {
     requestErrorHandler(res, "400 Task's uuid is missing.");
   } else {
-    try {
-      const sigArray = await knex
-        .select()
-        .from("Task")
-        .where("uuid", req.params.uuid)
-
-      if (sigArray.length === 1) {
-        successHandler(res, sigArray);
+    knex("Task").select().where("uuid", req.params.uuid)
+    .then( (signatureArray) => {
+      if (signatureArray.length === 1) {
+        successHandler(res, signatureArray[0]);
       } else {
         requestErrorHandler(res, `404 - Task with uuid: ${req.params.uuid} not found.`);
       }
-    } catch (error) {
+    })  
+    .catch((error) => {
       databaseErrorHandler(res, error, "Some database error happened");
-    }
+    })
   }
 })
 
