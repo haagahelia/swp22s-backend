@@ -10,7 +10,7 @@ import {
 const signatureRouter = express()
 
 // GET ALL http:localhost:8787/api/signatures/all
-signatureRouter.get("/all", async (_, res) => {
+signatureRouter.get("", async (_, res) => {
   try {
     const signatures = await knex("Task")
     return signatures

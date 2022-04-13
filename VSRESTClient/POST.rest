@@ -1,4 +1,4 @@
-POST http://localhost:8787/api/signatures
+POST http://localhost:8787/api/signature
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW

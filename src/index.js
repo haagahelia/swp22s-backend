@@ -4,7 +4,7 @@ import fileupload from 'express-fileupload';
 import dotenv from 'dotenv';
 
 import { logger } from "./utils/logger.js";
-import signatureRouter from "./routes/api/signatures.js";
+import signatureRouter from "./routes/api/signature.js";
 
 dotenv.config({});
 
@@ -22,7 +22,7 @@ app.get("/", (_, res) => {
     res.send('<h1>Hello World!</h1>')
 })
 
-app.use(process.env.BE_API_URL_PREFIX + "/signatures", signatureRouter);
+app.use(process.env.BE_API_URL_PREFIX + "/signature", signatureRouter);
 
 const PORT = process.env.BE_SERVER_PORT || 8787
 app.listen(PORT, () => {
