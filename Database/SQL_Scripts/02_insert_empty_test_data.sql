@@ -9,7 +9,7 @@ VALUES
     ('HUN', 'Hungary'),
     ('ITA', 'Italy'),
     ('JPN', 'Japan'),
-    ('PRK', 'Korea'),
+    ('KOR', 'South Korea'),
     ('LUX', 'Luxembourg'),
     ('MDG', 'Madagascar'),
     ('VNM', 'Viet Nam');
