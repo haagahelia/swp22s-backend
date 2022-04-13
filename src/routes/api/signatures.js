@@ -12,7 +12,7 @@ const signatureRouter = express()
 // GET ALL http:localhost:8787/api/signatures/all
 signatureRouter.get("/all", async (_, res) => {
   try {
-    const signatures = await knex("Signature")
+    const signatures = await knex("Task")
     return signatures
       ? successHandler(res, signatures)
       : requestErrorHandler(res, 404, "Request error. Data not found.")
