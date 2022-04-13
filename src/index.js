@@ -24,7 +24,7 @@ app.get("/", (_, res) => {
 
 app.use(process.env.BE_API_URL_PREFIX + "/signatures", signatureRouter);
 
-const PORT = process.env.PORT || 8787
+const PORT = process.env.BE_SERVER_PORT || 8787
 app.listen(PORT, () => {
   logger.info(`Server running on port ${PORT}`)
 })
