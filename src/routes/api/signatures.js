@@ -33,7 +33,7 @@ signatureRouter.get("/:uuid", (req, res) => {
       } else {
         requestErrorHandler(res, `404 - Task with uuid: ${req.params.uuid} not found.`);
       }
-    })  
+    })   
     .catch((error) => {
       databaseErrorHandler(res, error, "Some database error happened");
     })
