@@ -21,21 +21,21 @@ signatureRouter.get("/all", async (_, res) => {
   }
 })
 
-//GET ONE BY ID http:localhost:8787/api/signatures/:id
-signatureRouter.get("/:id", async (req, res) => {
-  if (!req.params.id) {
+//GET ONE BY ID http:localhost:8777/api/signatures/:id
+signatureRouter.get("/:uuid", async (req, res) => {
+  if (!req.params.uuid) {
     requestErrorHandler(res, 400, "Signature id is missing.");
   } else {
     try {
       const sigArray = await knex
         .select()
-        .from("Signature")
-        .where("id", req.params.id)
+        .from("Task")
+        .where("uuid", req.params.uuid)
 
       if (sigArray.length === 1) {
         successHandler(res, sigArray);
       } else {
-        requestErrorHandler(res, 404, `Signature with id: ${req.params.id} not found.`);
+        requestErrorHandler(res, 404, `Task with uuid: ${req.params.uuid} not found.`);
       }
     } catch (error) {
       databaseErrorHandler(res, error);
