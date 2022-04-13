@@ -1,5 +1,7 @@
 import knex from 'knex';
 
+dotenv.config({});
+
 export const databaseConfigObject = {
   client: process.env.DB_DRIVER_MODULE || 'mysql',
   connection: {
