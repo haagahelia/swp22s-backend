@@ -7,13 +7,13 @@ import {
   databaseErrorHandler
 } from "../../responseHandlers/index.js"
 
-const router = express();
+const task = express.Router();
 
 // This router is about adding more individual order pickup tasks etc. 
 // Not about signing, not about summary reports or lists.
   
-//GET ONE BY ID http:localhost:8777/api/signature/:uuid
-router.get("/:uuid", (req, res) => {
+//GET ONE BY ID http:localhost:8777/api/task/:uuid
+task.get("/:uuid", (req, res) => {
     if (!req.params.uuid) {
         requestErrorHandler(res, "400 Task's uuid is missing.");
     } else {
@@ -31,8 +31,8 @@ router.get("/:uuid", (req, res) => {
     }
 })
 
-//SAVE TO DB POST http:localhost:8787/api/signatures
-router.post("/", async (req, res) => {
+//SAVE TO DB POST http:localhost:8787/api/task
+task.post("/", async (req, res) => {
     //Note req.files not req.body!
     const files = req.files;
     if (!files) {
@@ -52,3 +52,25 @@ router.post("/", async (req, res) => {
         }
     }
 })
+
+//DELETE ONE BY ID http:localhost:8787/api/task/:id
+task.delete("/:id", async (req, res) => {
+    if (!req.params.id) {
+      requestErrorHandler(res, 400, "Signature id is missing.");
+    } else {
+      try {
+        const rowsAffected = await knex("Signature")
+          .where("id", req.params.id)
+          .del()
+        if (rowsAffected === 1) {
+          successHandler(res, rowsAffected, `Successfully deleted signature, modified rows: ${rowsAffected}.`, 204);
+        } else {
+          requestErrorHandler(res, 404, `Signature with id: ${req.params.id} not found.`);
+        }
+      } catch (error) {
+        databaseErrorHandler(res, error)
+      }
+    }
+  })
+
+  export default task;

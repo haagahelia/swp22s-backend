@@ -6,14 +6,14 @@ import {
   databaseErrorHandler
 } from "../../responseHandlers/index.js"
 
-const router = express();
+const report = express.Router();
 
 // This router is for all kinds of reports and stats about multiple tasks
 // Like tasks needing signature, tasks already signed, tasks not 
 // signed even if the planned delivery was yesterday or similar
 
 // GET ALL http:localhost:8777/api/report/
-router.get("/", (req, res) => {
+report.get("/", (req, res) => {
     knex("Task").select()
     .then( (signatureArray) => {
       successHandler(res, signatureArray, "GET /api/signature/ worked!")
@@ -23,4 +23,4 @@ router.get("/", (req, res) => {
     })
 })
 
-export default router;
+export default report;
