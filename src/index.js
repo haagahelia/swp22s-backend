@@ -4,7 +4,7 @@ import fileupload from 'express-fileupload';
 import dotenv from 'dotenv';
 
 import { logger } from "./utils/logger.js";
-import router from "./routes/api/";
+import router from "./routes/api/index.js";
 
 dotenv.config({});
 
