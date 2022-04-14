@@ -3,8 +3,9 @@ import cors from 'cors';
 import fileupload from 'express-fileupload';
 import dotenv from 'dotenv';
 
-import { logger } from "./utils/logger.js";
 import router from "./routes/api/index.js";
+import { logger } from "./utils/logger.js";
+export const our_logger = logger;
 
 dotenv.config({});
 
