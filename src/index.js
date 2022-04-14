@@ -14,13 +14,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(fileupload({
-    useTempFiles : true,
-    tempFileDir : '/tmp/'
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
 }));
 
 //Test localhost:8787 8777 or so from browser
 app.get("/", (_, res) => {
-    res.send('<h1>Hello World!</h1>')
+  res.send('<h1>Hello World!</h1>')
 })
 
 app.use(process.env.BE_API_URL_PREFIX, router);

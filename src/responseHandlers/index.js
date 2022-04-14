@@ -15,7 +15,7 @@ import { our_logger as logger } from "../index.js";
 
 const SERVER_ERROR_MESSAGE = "Server error.";
 // Atm. just telling caller wether request or server error. Thus no database prob revealed:
-const DB_ERROR_MESSAGE = SERVER_ERROR_MESSAGE; 
+const DB_ERROR_MESSAGE = SERVER_ERROR_MESSAGE;
 const REQUEST_BASED_ERROR_MESSAGE = "Request error.";
 
 const SERVER_ERROR_MESSAGE_TO_LOG = "Server error happened.";
@@ -32,45 +32,45 @@ const SUCCESS_MESSAGE_TO_LOG = "Successful operation.";
 // backend app server prob)
 
 export const databaseErrorHandler = (res, dbError, message) => {
-  if(!message) { 
+  if (!message) {
     message = DB_ERROR_MESSAGE_TO_LOG;
   }
-  message += " Db error code: "+dbError.errno;
-  message += " Db error message: "+dbError.message;
+  message += " Db error code: " + dbError.errno;
+  message += " Db error message: " + dbError.message;
   logger.error(message);
   //console.log(message);
-    
+
   res.status(500).send(DB_ERROR_MESSAGE).end();
 }
 
 export const serverErrorHandler = (res, message) => {
-  if(!message) { 
+  if (!message) {
     message = SERVER_ERROR_MESSAGE_TO_LOG;
   }
-  
+
   logger.error(message);
   //console.log(message);
   res.status(500).send(SERVER_ERROR_MESSAGE).end();
 }
 
 export const requestErrorHandler = (res, message) => {
-  if(!message) { 
+  if (!message) {
     message = REQUEST_BASED_ERROR_MESSAGE_TO_LOG;
   }
-  
+
   logger.error(message);
   //console.log(message);
   res.status(400).send(REQUEST_BASED_ERROR_MESSAGE).end();
 }
 
 export const successHandler = (res, data, message) => {
-  if(!message) { 
-    message = SUCCESS_MESSAGE_TO_LOG; 
+  if (!message) {
+    message = SUCCESS_MESSAGE_TO_LOG;
   }
   logger.verbose(message);
 
   // This was 
   // console.log("TEST: "+process.env.TEST);
 
-  res.status(200).send(data).end();  
+  res.status(200).send(data).end();
 }

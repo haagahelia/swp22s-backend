@@ -1,9 +1,9 @@
 import express from 'express';
 import knex from "../../db/index.js"
 import {
-  successHandler,
-  requestErrorHandler,
-  databaseErrorHandler
+    successHandler,
+    requestErrorHandler,
+    databaseErrorHandler
 } from "../../responseHandlers/index.js"
 
 const report = express.Router();
@@ -15,12 +15,12 @@ const report = express.Router();
 // GET ALL http:localhost:8777/api/report/
 report.get("/", (req, res) => {
     knex("Task").select()
-    .then( (signatureArray) => {
-      successHandler(res, signatureArray, "GET all tasks worked!")
-    })
-    .catch( (error) => {
-      databaseErrorHandler(res, error, "Could not get the signatures from DB!")
-    })
+        .then((signatureArray) => {
+            successHandler(res, signatureArray, "GET all tasks worked!")
+        })
+        .catch((error) => {
+            databaseErrorHandler(res, error, "Could not get the signatures from DB!")
+        })
 })
 
 export default report;
