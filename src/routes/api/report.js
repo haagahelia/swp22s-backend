@@ -16,7 +16,7 @@ const report = express.Router();
 report.get("/", (req, res) => {
     knex("Task").select()
     .then( (signatureArray) => {
-      successHandler(res, signatureArray, "GET /api/signature/ worked!")
+      successHandler(res, signatureArray, "GET all tasks worked!")
     })
     .catch( (error) => {
       databaseErrorHandler(res, error, "Could not get the signatures from DB!")

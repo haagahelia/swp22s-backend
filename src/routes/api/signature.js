@@ -15,9 +15,9 @@ const signature = express.Router();
 signature.put("/:id", async (req, res) => {
   const files = req.files;
   if (!files) {
-    requestErrorHandler(res, 400, "Request error. Data not found.");
+    requestErrorHandler(res, "400 - Request error. Data not found.");
   } else if (!req.params.id) {
-    requestErrorHandler(res, 400, "Signature id is missing.");
+    requestErrorHandler(res, "400 - Signature id is missing.");
   } else {
     try {
       const image = files.signature;
@@ -28,7 +28,7 @@ signature.put("/:id", async (req, res) => {
       if (rowsAffected === 1) {
         successHandler(res, String(rowsAffected), `Successfully updated signature, modified rows: ${rowsAffected}.`)
       } else {
-        requestErrorHandler(res, 409, `Duplicated: signature with id ${req.params.id}.`)
+        requestErrorHandler(res, `409 - Duplicated: signature with id ${req.params.id}.`)
       }
     } catch (error) {
       databaseErrorHandler(res, error)

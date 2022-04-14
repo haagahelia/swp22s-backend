@@ -20,7 +20,7 @@ task.get("/:uuid", (req, res) => {
         knex("Task").select().where("uuid", req.params.uuid)
         .then( (signatureArray) => {
         if (signatureArray.length === 1) {
-            successHandler(res, signatureArray[0], "GET /api/signature/:uuid worked!" );
+            successHandler(res, signatureArray[0], "GET one task based on uuid worked!" );
         } else {
             requestErrorHandler(res, `404 - Task with uuid: ${req.params.uuid} not found.`);
         }
