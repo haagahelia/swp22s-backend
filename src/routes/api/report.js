@@ -25,7 +25,7 @@ report.get("/", (req, res) => {
 
 // GET SIGNED http:localhost:8777/api/report/signed
 report.get("/signed", (req, res) => {
-    knex("Task").select().whereNotNull("pu_signed_at")
+    knex("Task").select().whereNotNull("pu_signature_image")
         .then((signatureArray) => {
             successHandler(res, signatureArray, "GET all signed tasks worked!")
         })
@@ -36,7 +36,7 @@ report.get("/signed", (req, res) => {
 
 // GET NOT SIGNED http:localhost:8777/api/report/notsigned
 report.get("/notsigned", (req, res) => {
-    knex("Task").select().whereNull("pu_signed_at")
+    knex("Task").select().whereNull("pu_signature_image")
         .then((signatureArray) => {
             successHandler(res, signatureArray, "GET all not signed tasks worked!")
         })

@@ -31,8 +31,10 @@ task.get("/:uuid", (req, res) => {
     }
 })
 
-//SAVE TO DB POST http:localhost:8787/api/task
-task.post("/", async (req, res) => {
+// This endpoint is for entering tech test data. A new endpoint should be added:
+// Where all the needed data is in, BUT no pu_signature NOR pu_signed_at yet.   TODO
+//SAVE TO DB POST http:localhost:8787/api/task   
+task.post("/tech", async (req, res) => {
     //Note req.files not req.body!
     const files = req.files;
     if (!files) {
@@ -59,9 +61,7 @@ task.delete("/:id", async (req, res) => {
         requestErrorHandler(res, 400, "Signature id is missing.");
     } else {
         try {
-            const rowsAffected = await knex("Signature")
-                .where("id", req.params.id)
-                .del()
+            const rowsAffected = await knex("Signature").where("uuid", req.params.id).del()
             if (rowsAffected === 1) {
                 successHandler(res, rowsAffected, `Successfully deleted signature, modified rows: ${rowsAffected}.`, 204);
             } else {
