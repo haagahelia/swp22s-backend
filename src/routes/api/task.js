@@ -32,9 +32,9 @@ task.get("/:uuid", (req, res) => {
 })
 
 // This endpoint is for entering tech test data. A new endpoint should be added:
-// Where all the needed data is in, BUT no pu_signature NOR pu_signed_at yet.   TODO
+// Where all the needed data is in, BUT no pu_signature_image NOR pu_signed_at yet.   TODO
 //SAVE TO DB POST http:localhost:8787/api/task   
-task.post("/tech", async (req, res) => {
+task.post("/", async (req, res) => {
     //Note req.files not req.body!
     const files = req.files;
     if (!files) {
