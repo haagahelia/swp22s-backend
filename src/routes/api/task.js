@@ -57,7 +57,7 @@ task.delete("/:uuid", (req, res) => {
     if (!req.params.uuid) {
         requestErrorHandler(res, "Task uuid is missing.");
     } else {
-        knex("Task").where("uuid", req.params.uuid).del()
+        knex("Task").where({"uuid": req.params.uuid}).del()
         .then( (rowsAffected) => {
             if (rowsAffected === 1) {
                 successHandler(res, rowsAffected, `Successfully deleted task, modified rows: ${rowsAffected}.`);
@@ -66,9 +66,7 @@ task.delete("/:uuid", (req, res) => {
             }
         })
         .catch( (error) => {
-            databaseErrorHandler(res, error);
-            
-            //, `Deleting task with uuid ${req.params.uuid} failed.`
+            databaseErrorHandler(res, error, `Deleting task with uuid ${req.params.uuid} failed.`)
         })
     }
 })
