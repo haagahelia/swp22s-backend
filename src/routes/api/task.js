@@ -60,7 +60,7 @@ task.delete("/:uuid", (req, res) => {
         knex("Task").where({"uuid": req.params.uuid}).del()
         .then( (rowsAffected) => {
             if (rowsAffected === 1) {
-                successHandler(res, rowsAffected, `Successfully deleted task, modified rows: ${rowsAffected}.`);
+                successHandler(res, {"rowsAffected":rowsAffected}, `Successfully deleted task, modified rows: ${rowsAffected}.`);
             } else {
                 requestErrorHandler(res, `Signature with id: ${req.params.id} not found.`);
             }
