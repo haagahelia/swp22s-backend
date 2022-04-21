@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS OrderType (
 /*
 I added created_at column just to know when the Task is created,
 if not needed, of course we can remove it
+
+NOTE: pu_planned_time should be NOT NULL? Or does it matter? Not used in our demo process.
 */
 
 CREATE TABLE IF NOT EXISTS Task (
@@ -22,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Task (
     order_type          VARCHAR(25)     NOT NULL,
     country_code        CHAR(3)         NOT NULL,
     created_at          TIMESTAMP       DEFAULT CURRENT_TIMESTAMP(),
-    pu_planned_time     TIMESTAMP       NULL,
+    pu_planned_time     TIMESTAMP       NOT NULL,     
     pu_address          VARCHAR(255)    NOT NULL,   
 
     pu_signature_image  TEXT,
