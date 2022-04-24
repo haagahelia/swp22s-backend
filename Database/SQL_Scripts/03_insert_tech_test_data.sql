@@ -32,7 +32,8 @@ INSERT INTO Task
 ;
 
 
-/* These are completed courier tasks, from zero to hero */
+/* These are completed courier tasks, from zero to hero 
+  (to create complete TEST DATA, not part of our process though, bypassing phases) */
 INSERT INTO Task 
     (   uuid, 
         order_type, 
@@ -61,7 +62,7 @@ VALUES
         '2022-04-12 08:20', 
         '2022-04-12 08:57',
         'Polkutie 8898, 88999 PORVOO',
-        '',
+        'iVBORw0KGgoAAAANSUhEUgAABPAAAAK8CAYAAABhiUEuAAAAAXNSR0IArs4c6QAAIABJREFUeF7s3QnQNVtZH/p/bqwb9YqIigMgCIIaiB4ZIhrUI6VgIMhgAlGjAmLgqiEMGjSpugXn3kRFkXNwIIEbc8CJBMrAAQMORCQRlQQ8nqugTBJEcMCIQFTMUNx6oBv7bPY8ru7+raqv3u/73u7Vz/qtfve799Nr',
         '2022-04-12 11:11'
     ),
     (

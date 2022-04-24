@@ -40,7 +40,7 @@ export const databaseErrorHandler = (res, dbError, message) => {
   logger.error(message);
   //console.log(message);
 
-  res.status(500).send(DB_ERROR_MESSAGE).end();
+  res.status(500).send(DB_ERROR_MESSAGE);
 }
 
 export const serverErrorHandler = (res, message) => {
@@ -50,7 +50,7 @@ export const serverErrorHandler = (res, message) => {
 
   logger.error(message);
   //console.log(message);
-  res.status(500).send(SERVER_ERROR_MESSAGE).end();
+  res.status(500).send(SERVER_ERROR_MESSAGE);
 }
 
 export const requestErrorHandler = (res, message) => {
@@ -60,7 +60,7 @@ export const requestErrorHandler = (res, message) => {
 
   logger.error(message);
   //console.log(message);
-  res.status(400).send(REQUEST_BASED_ERROR_MESSAGE).end();
+  res.status(400).send(REQUEST_BASED_ERROR_MESSAGE);
 }
 
 export const successHandler = (res, data, message) => {
@@ -72,5 +72,5 @@ export const successHandler = (res, data, message) => {
   // This was 
   // console.log("TEST: "+process.env.TEST);
 
-  res.status(200).send(data).end();
+  res.status(200).send(data);
 }
