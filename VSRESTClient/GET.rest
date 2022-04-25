@@ -1,1 +1,0 @@
-GET http://195.148.22.38:8777/api/signature
