@@ -5,6 +5,7 @@ import {
     requestErrorHandler,
     databaseErrorHandler
 } from "../../responseHandlers/index.js"
+import orderType from './orderType.js';
 
 const report = express.Router();
 
@@ -42,6 +43,22 @@ report.get("/notsigned", (req, res) => {
         })
         .catch((error) => {
             databaseErrorHandler(res, error, "Could not get the not signed signatures from DB!")
+        })
+})
+
+// GET report grouped by order_type http:localhost:8777/api/report/
+report.get("/by_order_type", (req, res) => {
+    knex("Task").select('order_type')
+                .count('order_type', {as: 'total'})
+                .count('pu_signed_at', {as: 'signed'})
+                .max('pu_planned_time', {as: 'last_planned_pickup'})
+                .groupBy("order_type")
+                .orderBy('order_type','asc')
+        .then((signatureArray) => {
+            successHandler(res, signatureArray, "GET all tasks worked!")
+        })
+        .catch((error) => {
+            databaseErrorHandler(res, error, "Could not get the signatures from DB!")
         })
 })
 
