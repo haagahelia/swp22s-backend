@@ -46,7 +46,7 @@ report.get("/notsigned", (req, res) => {
         })
 })
 
-// GET report grouped by order_type http:localhost:8777/api/report/
+// GET report grouped by order_type http:localhost:8777/api/report/by_order_type
 report.get("/by_order_type", (req, res) => {
     knex("Task").select('order_type')
                 .count('order_type', {as: 'total'})
