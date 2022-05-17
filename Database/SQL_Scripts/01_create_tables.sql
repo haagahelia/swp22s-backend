@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Task (
     pu_planned_time     TIMESTAMP       NOT NULL,     
     pu_address          VARCHAR(255)    NOT NULL,   
 
-    pu_signature_image  TEXT,
+    pu_signature_image  LONGTEXT,
     pu_signed_at        TIMESTAMP       NULL ON UPDATE CURRENT_TIMESTAMP(),
     
     PRIMARY KEY (uuid),
