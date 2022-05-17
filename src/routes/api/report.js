@@ -55,10 +55,10 @@ report.get("/by_order_type", (req, res) => {
                 .groupBy("order_type")
                 .orderBy('order_type','asc')
         .then((signatureArray) => {
-            successHandler(res, signatureArray, "GET all tasks worked!")
+            successHandler(res, signatureArray, "GET report by order type worked!")
         })
         .catch((error) => {
-            databaseErrorHandler(res, error, "Could not get the signatures from DB!")
+            databaseErrorHandler(res, error, "Could not get the report by order type from DB!")
         })
 })
 
