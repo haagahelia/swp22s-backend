@@ -1,5 +1,4 @@
 import express from 'express';
-import { readFileSync } from 'fs';
 import knex from "../../db/index.js"
 import {
     successHandler,
@@ -43,12 +42,37 @@ task.post("/", (req, res) => {
     } else {
         knex.insert(body).into("Task")
         .then((rowIdArr) => {
-            successHandler(res, rowIdArr, `Task successfully saved, id not yet used: ${rowIdArr}`)
+            successHandler(res, {rowIdArr: rowIdArr}, `Task successfully saved, id not yet used: ${rowIdArr}`)
         })
         .catch( (err) => {
             databaseErrorHandler(res, err, 
                 `Inserting new task with ${req.body.uuid} failed`)
         })    
+    }
+})
+
+task.put("/", (req, res) => {
+    const body = req.body;
+    if (!req.body) {
+        requestErrorHandler(res, 400, "Request error. Task data body not found.");
+    } else if (!req.body.uuid || !req.body.pu_address) {
+        requestErrorHandler(res, 400, "uuid or address not found in request body.");
+    } else {
+        knex("Task")
+            .where("uuid", "=", body.uuid)
+            .update(body)
+            .then((rowsAffected) => {
+                if (rowsAffected === 1) {
+                    successHandler(res, {rowsAffected: rowsAffected}, `Task successfully edited, id not yet used: ${rowsAffected}`)
+                } else {
+                    databaseErrorHandler(res, err, 
+                        `Updating task with ${body.uuid} failed`)
+                }
+            })
+            .catch( (err) => {
+                databaseErrorHandler(res, err, 
+                    `Updating task with ${body.uuid} failed`)
+            })    
     }
 })
 
