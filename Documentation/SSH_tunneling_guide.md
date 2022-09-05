@@ -3,6 +3,7 @@
 This guide is created and tested on Windows system (Windows 10)
 
 ## Needed Tools
+
 - [Putty](https://www.putty.org/)
 - [MySQL Workbench](https://dev.mysql.com/downloads/installer/)
 - [Git Bash](https://git-scm.com/downloads)
@@ -67,3 +68,5 @@ Don't close the terminal, keep it open and move on to the Testing The Connection
 - You will see that you have a successful connection
 - Click **OK**
 - Click **OK** again, the new connection will appear in the home interface
+
+## Connect MariaDB On local PC via Heidi
