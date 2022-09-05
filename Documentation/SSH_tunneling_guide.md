@@ -13,7 +13,7 @@ Complete either one of the following step and move on to the **Testing The Conne
 
 ### Using Putty
 
-- Host name: **195.148.22.114**
+- Host name: **SECRET_IP_WOULD_BE_HERE**
 - Port: **22**
 - Connection type: **SSH**
 - Add a name to the Saved Sessions input box -> Click **Save**
@@ -42,7 +42,7 @@ The command can be different on MacOS, this command was tested on Windows
 
 - Open git Bash, type:
 
-        ssh <db-username>@195.148.22.114 -L <db-port>:localhost:3306
+        ssh <db-username>@SECRET_IP_WOULD_BE_HERE -L <db-port>:localhost:3306
 
 - You will be prompted for password, type the according &lt;db-password&gt;
 - You are now inside the tunnel
