@@ -105,7 +105,7 @@ If you want to exit or stop the current screen, just type **exit** when you're i
 ----
 ### Extra
 
-There's one issue here that the mysql service will stop running at some points could be because of out of memory etc. If this happens, you should go back into the terminal to restart it. 
+There's one issue here that the mySQL service will stop running at some points could be because of out of memory etc. If this happens, you should go back into the terminal to restart it. 
 
 What I did was setting up a script to automatically restart the server every time it stops and then add a cron job for this to work on schedule so that I don't have to manually restart it myself. I leave the details for the audience to explore themselves. 
 
