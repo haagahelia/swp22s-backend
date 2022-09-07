@@ -1,6 +1,6 @@
 # SSH Tunneling to VM
 
-This guide is created and tested on Windows system (Windows 10)
+This guide is created and tested on Windows system (Windows 10) AND not tested on Windows 11
 
 ## Needed Tools
 - [Putty](https://www.putty.org/)
