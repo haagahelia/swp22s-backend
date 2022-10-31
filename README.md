@@ -8,7 +8,7 @@ people are turning back to npm?)
 0. (If you have an old installation, remove it, or remove at least node_modules and package-lock.json/yarn.lock etc.)
 1. git clone / git pull
 1. npm install
-1. create an '.env' file to the root of the project folder. Model for the file found in Teams > DevOps, Linux > Files > .xlsx
+1. create an '.env' file to the root of the project folder. Model for the file found in Teams > Backend > Files > .env
 
 4. npm start
 
