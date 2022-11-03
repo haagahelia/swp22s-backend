@@ -11,9 +11,7 @@ import {
 
 const signature = express.Router();
 
-// This router is about signing the tasks (after pickup and later after delivery)
-
-//UPDATE ONE BY ID PUT http:localhost:8787/api/signature/:id
+//signing the tasks (after pickup and later after delivery): UPDATE ONE BY ID PUT http:localhost:8787/api/signature/:id
 signature.put("/:id", async (req, res) => {
   try {
     const files = req.files;
