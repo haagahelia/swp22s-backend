@@ -38,8 +38,7 @@ INSERT INTO Task
 ;
 
 
-/* These are completed courier tasks, from zero to hero 
-  (to create complete TEST DATA, not part of our process though, bypassing phases) */
+/* These are completed courier tasks */
 INSERT INTO Task 
     (   uuid, 
         order_type, 

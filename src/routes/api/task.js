@@ -8,9 +8,6 @@ import {
 
 const task = express.Router();
 
-// This router is about adding more individual order pickup tasks etc. 
-// Not about signing, not about summary reports or lists.
-
 //GET ONE BY ID http:localhost:8777/api/task/:uuid
 task.get("/:uuid", (req, res) => {
     if (!req.params.uuid) {
@@ -51,6 +48,7 @@ task.post("/", (req, res) => {
     }
 })
 
+//UPDATE ONE BY ID http:localhost:8787/api/task/:uuid
 task.put("/", (req, res) => {
     const body = req.body;
     if (!req.body) {
