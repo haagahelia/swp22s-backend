@@ -2,16 +2,16 @@
 
 This guide is created and tested on Windows system (Windows 10) AND not tested on Windows 11
 
-## Needed Tools
+### Needed Tools
 - [Putty](https://www.putty.org/)
-- [MySQL Workbench](https://dev.mysql.com/downloads/installer/)
+- [MySQL Workbench](https://dev.mysql.com/downloads/installer/) / [HeidiSQL](https://www.heidisql.com/) / [DBeaver](https://dbeaver.io/) 
 - [Git Bash](https://git-scm.com/downloads)
 
 ## Establishing The Tunnel
 
-Complete either one of the following step and move on to the **Testing The Connection** step
+Complete one of the following step and move on to the **Testing The Connection** step
 
-### Using Putty
+### 1.  Using Putty
 
 - Host name: **SECRET_IP_WOULD_BE_HERE**
 - Port: **22**
@@ -36,7 +36,7 @@ Complete either one of the following step and move on to the **Testing The Conne
 
 Don't close the terminal, keep it open and move on to the Testing The Connection step
 
-### Using Command
+### 2. Using Command
 
 The command can be different on MacOS, this command was tested on Windows
 
@@ -44,7 +44,7 @@ The command can be different on MacOS, this command was tested on Windows
 
         ssh <db-username>@SECRET_IP_WOULD_BE_HERE -L <db-port>:localhost:3306
 
-- You will be prompted for password, type the according &lt;db-password&gt;
+- You will be prompted for password, type the according &lt;db-user-password&gt;
 - You are now inside the tunnel
 - To make sure the MySQL service is run inside the tunnel, type:
 
@@ -52,7 +52,19 @@ The command can be different on MacOS, this command was tested on Windows
 
 Don't close the terminal, keep it open and move on to the Testing The Connection step
 
-## Testing The Connection
+### 2. Using a software such as HeidiSQL
+
+These steps are really similar in MySQL Workbench and DBeaver, so by using the right credentials and ports the instructions should be helpful even if using another software. You can name and save the connection and it will be easy and quick to connect the next time.
+
+1. Set the correct network type MariaDB or MySQL (SSH tunnel) and fill linux username and password. 
+![Settings](/Documentation\HeidiSQL_tunneling_guide\HeidiSQL_connection_settings.PNG)
+
+2. Add the correct IP address and database username + password  (port: 22 stays the same) in SSH tunnel settings and your local db port used
+![SSH tunnel settings](/Documentation\HeidiSQL_tunneling_guide\HeidiSQL_SSH_tunnel_settings.PNG)
+
+## Testing the connection
+
+### Testing The Connection with MySQL Workbench
 
 - After completed either one of the above step, open MySQL Workbench
 - Press the **Plus** button next to the MySQL Connections header
@@ -60,10 +72,15 @@ Don't close the terminal, keep it open and move on to the Testing The Connection
 - Change the port to **&lt;db-port&gt;**
 - Change the username to **&lt;db-username&gt;**
 - Click **Store in Vault...**
-- Type **&lt;db-password&gt;** in the Password input
+- Type **&lt;db-user-password&gt;** in the Password input
 - Click **Ok**
 - Click **Test Connection**
 - There will be a popup, click **Continue Anyway**
 - You will see that you have a successful connection
 - Click **OK**
 - Click **OK** again, the new connection will appear in the home interface
+
+### Testing the connection with HeidiSQL
+
+- Choose the correct session and open the connection
+- You should see the database and its contents on the left side of the screen. 
