@@ -57,10 +57,10 @@ Don't close the terminal, keep it open and move on to the Testing The Connection
 These steps are really similar in MySQL Workbench and DBeaver, so by using the right credentials and ports the instructions should be helpful even if using another software. You can name and save the connection and it will be easy and quick to connect the next time.
 
 1. Set the correct network type MariaDB or MySQL (SSH tunnel) and fill linux username and password. 
-![Settings](/Documentation\HeidiSQL_tunneling_guide\HeidiSQL_connection_settings.PNG)
+![Settings](/Documentation/HeidiSQL_tunneling_guide/HeidiSQL_SSH_tunnel_settings.PNG)
 
 2. Add the correct IP address and database username + password  (port: 22 stays the same) in SSH tunnel settings and your local db port used
-![SSH tunnel settings](/Documentation\HeidiSQL_tunneling_guide\HeidiSQL_SSH_tunnel_settings.PNG)
+![SSH tunnel settings](/Documentation/HeidiSQL_tunneling_guide/HeidiSQL_connection_settings.PNG))
 
 ## Testing the connection
 
