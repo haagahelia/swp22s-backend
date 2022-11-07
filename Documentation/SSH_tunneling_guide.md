@@ -60,7 +60,7 @@ These steps are really similar in MySQL Workbench and DBeaver, so by using the r
 ![Settings](/Documentation/HeidiSQL_tunneling_guide/HeidiSQL_SSH_tunnel_settings.PNG)
 
 2. Add the correct IP address and database username + password  (port: 22 stays the same) in SSH tunnel settings and your local db port used
-![SSH tunnel settings](/Documentation/HeidiSQL_tunneling_guide/HeidiSQL_connection_settings.PNG))
+![SSH tunnel settings](/Documentation/HeidiSQL_tunneling_guide/HeidiSQL_connection_settings.PNG)
 
 ## Testing the connection
 
