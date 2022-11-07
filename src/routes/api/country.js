@@ -7,7 +7,7 @@ import {
 
 const country = express.Router();
 
-// This router is for get all country from the database
+
 
 // GET ALL http:localhost:8777/api/report/
 country.get("/", (req, res) => {

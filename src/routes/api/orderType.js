@@ -7,8 +7,6 @@ import {
 
 const orderType = express.Router();
 
-// This router is for get all order type 
-
 // GET ALL http:localhost:8777/api/report/
 orderType.get("/", (req, res) => {
     knex("OrderType").select()

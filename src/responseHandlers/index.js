@@ -69,8 +69,7 @@ export const successHandler = (res, data, message) => {
   }
   logger.verbose(message);
 
-  // This was 
-  // console.log("TEST: "+process.env.TEST);
+
 
   res.status(200).send(data);
 }
