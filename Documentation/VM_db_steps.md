@@ -1,4 +1,4 @@
-# Checkout the Database Using VM
+# Checkout the Database Using VM (not working at the moment with these credentals)
 
 Please notice that this is a guide for you to check the database out, not the guide to connect to it.
 
