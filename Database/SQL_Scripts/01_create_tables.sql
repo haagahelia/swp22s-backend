@@ -29,3 +29,12 @@ CREATE TABLE IF NOT EXISTS Task (
     CONSTRAINT fk_Country FOREIGN KEY (country_code) REFERENCES Country(id) 
 );
 
+CREATE TABLE IF NOT EXISTS User (
+    userId                CHAR(24)        UNIQUE NOT NULL,
+    email                  VARCHAR(24)     UNIQUE NOT NULL,   
+    ROLE                   VARCHAR(15)     ('Taskplanner' OR 'Courier'),
+    
+    PRIMARY KEY (userId)  
+
+);
+
