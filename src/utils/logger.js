@@ -1,15 +1,24 @@
-import winston from "winston";
+import { createLogger, transports, format } from "winston";
 
-const logConfiguration = {
-    'transports': [
-        new winston.transports.Console({
-            level: "silly"
-        }),
-        new winston.transports.File({
-            filename: './logs/winstonBackendLog.log',
-            level: "silly"
-        }),
-    ]
-};
+const customFormat = format.combine(
+  format.timestamp({ format: "YYYY-MM-DD hh:mm:ss.SSS" }),
+  format.splat(),
+  format.printf((info) => {
+    return `${info.timestamp} [${info.level.toLocaleUpperCase()}] ${
+      info.message
+    }`;
+  })
+);
 
-export const logger = winston.createLogger(logConfiguration); 
+const logger = createLogger({
+  format: customFormat,
+  transports: [
+    new transports.File({
+      filename: "./logs/winstonBackendLog.log",
+      level: "silly",
+    }),
+    new transports.Console({ level: "silly" }),
+  ],
+});
+
+export default logger;
