@@ -1,4 +1,4 @@
-# swp22k-backend
+# swp22s-backend
 
 Note: Please do not use yarn for this project. When everybody uses npm
 it's easier. (To my knowledge yarn also did not surpass npm in popularity and
@@ -19,8 +19,8 @@ Debug with logs: either see terminal or Winston logger if trouble. You should se
 
 ## Connect to the database using SSH tunnel
 
-- Install your local MariaDB if you don't have it already. Step-by-step instructions located at folder [MariaDB_InstallationDocs_ForLocalDB](Documentation\MariaDB_InstallationDocs_ForLocalDB) 
-- Set up SSH tunnel with [SSH tunneling guide](Documentation\SSH_tunneling_guide.md) either using
+- Install your local MariaDB if you don't have it already. Step-by-step instructions located at folder [MariaDB_InstallationDocs_ForLocalDB](Documentation/MariaDB_InstallationDocs_ForLocalDB) 
+- Set up SSH tunnel with [SSH tunneling guide](Documentation/SSH_tunneling_guide.md) either using
     * Putty 
     * Command line
     * DBMS software such as HeidiSQL, MySQL Workbench or DBeaver. 
@@ -61,7 +61,7 @@ This would kill the process with PID 12345. Try without sudo if not in with sudo
 
 (and give the password later, after hitting Enter, with right-click + Enter again)
 
-    USE db22k;
+    USE testdb;
 
 at least these are needed while testing:       (Possibly also drop tables, create tables,)
 ...

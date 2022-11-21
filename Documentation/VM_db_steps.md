@@ -3,7 +3,7 @@
 Please notice that this is a guide for you to check the database out, not the guide to connect to it.
 
 1. Open Putty
-2. In the Host Name input box, add **195.148.22.114**. Keep the port as **22**
+2. In the Host Name input box, add **&lt;our_secret_ip&gt;. Keep the port as **22**
 3. Click **Open**
 4. A console will be open with the line "login as:", type **&lt;db-username&gt;**
 5. The console will then ask for password, type the provided password in Teams accordingly 
@@ -31,3 +31,4 @@ The database name can be different, in our case it's swp22k_102image
         sudo service mysql start
 
 11. After that press Ctrl + C and return to step 6
+

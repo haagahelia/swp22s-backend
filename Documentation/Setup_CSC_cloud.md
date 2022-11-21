@@ -78,7 +78,7 @@ Run
 
         screen
 
-        cd project/swp22k...
+        cd project/swp22s...
 
         npm run start
 
