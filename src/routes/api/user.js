@@ -9,11 +9,11 @@ const user = express.Router();
 
 
 
-// GET ALL http:localhost:8777/api/user/
+// GET ALL http:localhost:{ PORT }/api/user/
 user.get("/", (req, res) => {
     knex("User").select()
-        .then((userArray) => {
-            successHandler(res, userArray, "GET all users !")
+        .then((signatureArray) => {
+            successHandler(res, signatureArray, "GET all users !")
         })
         .catch((error) => {
             databaseErrorHandler(res, error, "Could not get the users from DB!")
@@ -21,15 +21,15 @@ user.get("/", (req, res) => {
 })
 
 
-//GET ONE BY ID http:localhost:8777/api/user/:userId
+//GET ONE BY ID http:localhost:{ PORT }/api/user/:userId
 user.get("/:userId", (req, res) => {
     if (!req.params.userId) {
         requestErrorHandler(res, "400 User's userId is missing.");
     } else {
         knex("User").select().where("userId", req.params.userId)
-            .then((userArray) => {
-                if (userArray.length === 1) {
-                    successHandler(res, userArray[0], "GET one user based on userId worked!");
+            .then((signatureArray) => {
+                if (signatureArray.length === 1) {
+                    successHandler(res, signatureArray[0], "GET one user based on userId worked!");
                 } else {
                     requestErrorHandler(res, `404 - User with userId: ${req.params.userId} not found.`);
                 }
@@ -40,13 +40,13 @@ user.get("/:userId", (req, res) => {
     }
 })
 
-//SAVE TO DB POST http:localhost:8787/api/user   
+//SAVE TO DB POST http:localhost:{ PORT }/api/user   
 user.post("/", (req, res) => {
     const body = req.body;
     if (!req.body) {
         requestErrorHandler(res, 400, "Request error. User data body not found.");
     } else if (!req.body.userId || !req.body.email) {
-        requestErrorHandler(res, 400, "userId or address not found in request body.");
+        requestErrorHandler(res, 400, "userId or email address not found in request body.");
     } else {
         knex.insert(body).into("User")
         .then((rowIdArr) => {
@@ -85,7 +85,7 @@ user.put("/", (req, res) => {
     }
 })
 
-//DELETE ONE BY ID http:localhost:8787/api/user/:userId
+//DELETE ONE BY ID http:localhost:{ PORT }/api/user/:userId
 user.delete("/:userId", (req, res) => {
     if (!req.params.userId) {
         requestErrorHandler(res, "User userId is missing.");

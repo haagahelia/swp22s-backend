@@ -7,7 +7,7 @@ import {
 
 const orderType = express.Router();
 
-// GET ALL http:localhost:8777/api/report/
+// GET ALL http:localhost:8777/api/type/
 orderType.get("/", (req, res) => {
     knex("OrderType").select()
         .then((signatureArray) => {

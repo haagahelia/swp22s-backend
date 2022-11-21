@@ -7,7 +7,7 @@ import {
 
 const country = express.Router();
 
-// GET ALL http:localhost:8777/api/report/
+// GET ALL http:localhost:8777/api/country/
 country.get("/", (req, res) => {
   knex("Country")
     .select()

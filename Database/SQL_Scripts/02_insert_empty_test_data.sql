@@ -12,10 +12,17 @@ VALUES
     ('KOR', 'South Korea'),
     ('LUX', 'Luxembourg'),
     ('MDG', 'Madagascar'),
-    ('VNM', 'Viet Nam');
+    ('VNM', 'Viet Nam'),
+    ('SWE', 'Sweden');
 
 INSERT INTO OrderType (order_type)
 VALUES
     ('drive'),
     ('restaurant'),
     ('retail');
+
+INSERT INTO User (firstName, lastName, email)
+VALUES  
+    ('Seppo', 'Taalasmaa', 'seppo@talotaikurit.fi'),
+    ('Ulla', 'Taalasmaa', 'ullao@talotaikurit.fi'),
+    ('Ismo', 'Laitela', 'info@ismonkauppa.fi');

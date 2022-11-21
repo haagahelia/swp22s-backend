@@ -30,9 +30,10 @@ CREATE TABLE IF NOT EXISTS Task (
 );
 
 CREATE TABLE IF NOT EXISTS User (
-    userId                CHAR(24)        UNIQUE NOT NULL,
-    email                  VARCHAR(24)     UNIQUE NOT NULL,   
-    ROLE                   VARCHAR(15)     ('Taskplanner' OR 'Courier'),
+    userId              INT(10)         UNIQUE NOT NULL,
+    firstName           VARCHAR(24)     NOT NULL,  
+    lastName             VARCHAR(24)    NOT NULL,     
+    email               VARCHAR(24)     UNIQUE NOT NULL,   
     
     PRIMARY KEY (userId)  
 
