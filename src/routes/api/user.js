@@ -6,6 +6,7 @@ import {
 } from "../../responseHandlers/index.js"
 
 const user = express.Router();
+const role = express.Router();
 
 
 
@@ -103,6 +104,7 @@ user.delete("/:userId", (req, res) => {
         })
     }
 })
+
 
 
 export default user;
