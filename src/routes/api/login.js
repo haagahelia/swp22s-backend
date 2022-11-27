@@ -22,7 +22,7 @@ login.post('/login', async (req, res) => {
     
     if (user && (await bcrypt.compare(pword, user.pword))) {
       const token = jwt.sign(
-        { id: user.userId, email},
+        { id: user.userId, email, firstName: user.firstName},
         process.env.JWT_SECRET,
         {
           expiresIn: '1d', // 1 day
@@ -42,14 +42,13 @@ login.post('/signup', async (req, res) => {
     if (!(email && pword)) {
       res.status(400).send('All fields required')
     }
-
     const oldUser= await knex("User").select().where("email", email).then(result => result[0]);
 
     if (oldUser) {
       return res.status(409).send('Email already exists')
     }
     const encryptedPassword = await bcrypt.hash(pword, 10)
-
+    
     const user= await knex("User").insert({email:email, pword:encryptedPassword, userId:1526, phone:1551, firstName:"udhiud", lastName:"gdyusgd"})
 
     const token = jwt.sign(
