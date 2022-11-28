@@ -19,6 +19,8 @@ login.post('/login', async (req, res) => {
     }
 
    const user= await knex("User").select().join("Roles", "User.role_id", "=", "Roles.role_id").where("email", email).then(result => result[0]);
+
+   console.log(user);
     
     if (user && (await bcrypt.compare(pword, user.pword))) {
       const token = jwt.sign(
