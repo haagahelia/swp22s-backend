@@ -6,8 +6,6 @@ import signature from './signature.js';
 import country from './country.js';
 import orderType from './orderType.js';
 import user from './user.js';
-import login from './login.js';
-import checkAuth from '../../utils/checkAuth.js';
 
 
 const routes = express.Router();
