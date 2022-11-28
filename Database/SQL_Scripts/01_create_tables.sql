@@ -30,11 +30,27 @@ CREATE TABLE IF NOT EXISTS Task (
 );
 
 CREATE TABLE IF NOT EXISTS User (
-    userId                CHAR(24)        UNIQUE NOT NULL,
-    email                  VARCHAR(24)     UNIQUE NOT NULL,   
-    ROLE                   VARCHAR(15)     ('Taskplanner' OR 'Courier'),
-    
+    userId                INT             UNIQUE NOT NULL,
+    email                 VARCHAR(20)     UNIQUE NOT NULL,
+    phone                 VARCHAR(11)     UNIQUE NOT NULL,
+    firstName             VARCHAR(24)     NOT NULL,
+    lastName              VARCHAR(24)     NOT NULL,
+    pword                 VARCHAR(100)    NOT NULL,
     PRIMARY KEY (userId)  
 
 );
 
+CREATE TABLE IF NOT EXISTS Roles (
+
+    givenrole     VARCHAR(25) NOT NULL,
+    PRIMARY KEY (givenrole)    
+    
+);
+
+CREATE TABLE IF NOT EXISTS User_Roles (
+    userId                INT             NOT NULL,
+    givenrole     VARCHAR(25) NOT NULL,
+    CONSTRAINT fk_userId FOREIGN KEY (userId) REFERENCES User(userId),
+    CONSTRAINT fk_Roles FOREIGN KEY (givenrole) REFERENCES Roles(givenrole) 
+
+)
