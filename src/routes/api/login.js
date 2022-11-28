@@ -18,11 +18,11 @@ login.post('/login', async (req, res) => {
       res.status(400).send('All field are required')
     }
 
-   const user= await knex("User").select().where("email", email).then(result => result[0]);
+   const user= await knex("User").select().join("Roles", "User.role_id", "=", "Roles.role_id").where("email", email).then(result => result[0]);
     
     if (user && (await bcrypt.compare(pword, user.pword))) {
       const token = jwt.sign(
-        { id: user.userId, email, firstName: user.firstName},
+        { id: user.userId, email, firstName: user.firstName, role: user.explanation},
         process.env.JWT_SECRET,
         {
           expiresIn: '1d', // 1 day
