@@ -2,11 +2,12 @@ import express from 'express';
 import knex from "../../db/index.js"
 import {
     successHandler,
-    databaseErrorHandler
+    databaseErrorHandler,
+    requestErrorHandler
 } from "../../responseHandlers/index.js"
 
 const user = express.Router();
-const role = express.Router();
+
 
 
 
@@ -40,6 +41,8 @@ user.get("/:userId", (req, res) => {
             })
     }
 })
+
+
 
 //SAVE TO DB POST http:localhost:8787/api/user   
 user.post("/", (req, res) => {
@@ -105,6 +108,24 @@ user.delete("/:userId", (req, res) => {
     }
 })
 
+//List users by rolehttp:localhost:8777/api/user/role/:roleId
+user.get("/role/:roleId", (req, res) => {
+    if (!req.params.roleId) {
+        requestErrorHandler(res, "400 role id is missing.");
+    } else {
+        knex("User").select().where("roles", req.params.roleId)
+            .then((signatureArray) => {
+                if (signatureArray.length === 1) {
+                    successHandler(res, signatureArray[0], "GET users based on role id worked!");
+                } else {
+                    requestErrorHandler(res, `404 - User with userId: ${req.params.roleId} not found.`);
+                }
+            })
+            .catch((error) => {
+                databaseErrorHandler(res, error, "Some database error happened");
+            })
+    }
+})
 
 
 export default user;
