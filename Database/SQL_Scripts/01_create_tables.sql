@@ -36,21 +36,15 @@ CREATE TABLE IF NOT EXISTS User (
     firstName             VARCHAR(24)     NOT NULL,
     lastName              VARCHAR(24)     NOT NULL,
     pword                 VARCHAR(100)    NOT NULL,
-    PRIMARY KEY (userId)  
+    roles                 INT             NOT NULL DEFAULT 0,
+    PRIMARY KEY (userId), 
+    CONSTRAINT fk_Role FOREIGN KEY (roles) REFERENCES Roles(roleId)   
 
 );
 
 CREATE TABLE IF NOT EXISTS Roles (
+    roleId  INT           UNIQUE NOT NULL,
+    explanation                 VARCHAR(50)     NOT NULL, 
+    PRIMARY KEY (roleId)  
 
-    givenrole     VARCHAR(25) NOT NULL,
-    PRIMARY KEY (givenrole)    
-    
 );
-
-CREATE TABLE IF NOT EXISTS User_Roles (
-    userId                INT             NOT NULL,
-    givenrole     VARCHAR(25) NOT NULL,
-    CONSTRAINT fk_userId FOREIGN KEY (userId) REFERENCES User(userId),
-    CONSTRAINT fk_Roles FOREIGN KEY (givenrole) REFERENCES Roles(givenrole) 
-
-)

@@ -2,4 +2,4 @@ DELETE FROM Task;
 DELETE FROM OrderType;
 DELETE FROM Country;
 DELETE FROM User;
-DELETE FROM User_Roles;
+DELETE FROM Roles;

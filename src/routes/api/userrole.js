@@ -8,18 +8,37 @@ import {
 const userrole = express.Router();
 
 
-//GET USERS BY ROLE http:localhost:8787/api/role/courier http:localhost:8787/api/role/taskplanner
+//GET USERS BY ROLE http:localhost:8787/api/role/courier http:localhost:8787/api/role/:roleId
 
-userrole.get("/role/:role", (req, res) => {
-    if (!req.params) {
-        requestErrorHandler(res, "400 User role is missing.");
+userrole.get("/:roleId", (req, res) => {
+    if (!req.params.roleId) {
+        requestErrorHandler(res, "400 User role id is missing.");
     } else {
-        knex("User_Roles").select().where('givenrole', req.params.role)
+        knex("Roles").select().where('roleId', req.params.roleId)
             .then((signatureArray) => {
                 if (signatureArray.length === 1) {
-                    successHandler(res, signatureArray[0], "GET one user based on role worked!");
+                    successHandler(res, signatureArray[0], "GET one role info on role worked!");
                 } else {
-                    requestErrorHandler(res, `404 - User with role: ${req.params.role} not found.`);
+                    requestErrorHandler(res, `404 - Role with role: ${req.params.roleId} not found.`);
+                }
+            })
+            .catch((error) => {
+                databaseErrorHandler(res, error, "Some database error happened");
+            })
+    }
+})
+/*
+//GET ONE BY ID http:localhost:8777/api/user/:userId
+user.get("/:userId", (req, res) => {
+    if (!req.params.userId) {
+        requestErrorHandler(res, "400 User's userId is missing.");
+    } else {
+        knex("User").select().where("userId", req.params.userId)
+            .then((signatureArray) => {
+                if (signatureArray.length === 1) {
+                    successHandler(res, signatureArray[0], "GET one user based on userId worked!");
+                } else {
+                    requestErrorHandler(res, `404 - User with userId: ${req.params.userId} not found.`);
                 }
             })
             .catch((error) => {
@@ -28,10 +47,12 @@ userrole.get("/role/:role", (req, res) => {
     }
 })
 
+*/
+
 
 // GET ALL http:localhost:8777/api/userrole
 userrole.get("/", (req, res) => {
-    knex("User_Roles").select()
+    knex("Roles").select()
         .then((signatureArray) => {
             successHandler(res, signatureArray, "GET all roles !")
         })
