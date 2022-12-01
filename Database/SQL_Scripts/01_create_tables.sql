@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS Task (
 );
 
 CREATE TABLE IF NOT EXISTS User (
-    userId                INT             UNIQUE NOT NULL,
+    userId                INT             NOT NULL AUTO_INCREMENT,
     email                 VARCHAR(20)     UNIQUE NOT NULL,
     phone                 VARCHAR(11)     UNIQUE NOT NULL,
     firstName             VARCHAR(24)     NOT NULL,

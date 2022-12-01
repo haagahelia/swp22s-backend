@@ -27,27 +27,6 @@ userrole.get("/:roleId", (req, res) => {
             })
     }
 })
-/*
-//GET ONE BY ID http:localhost:8777/api/user/:userId
-user.get("/:userId", (req, res) => {
-    if (!req.params.userId) {
-        requestErrorHandler(res, "400 User's userId is missing.");
-    } else {
-        knex("User").select().where("userId", req.params.userId)
-            .then((signatureArray) => {
-                if (signatureArray.length === 1) {
-                    successHandler(res, signatureArray[0], "GET one user based on userId worked!");
-                } else {
-                    requestErrorHandler(res, `404 - User with userId: ${req.params.userId} not found.`);
-                }
-            })
-            .catch((error) => {
-                databaseErrorHandler(res, error, "Some database error happened");
-            })
-    }
-})
-
-*/
 
 
 // GET ALL http:localhost:8777/api/userrole

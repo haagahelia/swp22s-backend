@@ -49,7 +49,7 @@ user.post("/", (req, res) => {
     const body = req.body;
     if (!req.body) {
         requestErrorHandler(res, 400, "Request error. User data body not found.");
-    } else if (!req.body.userId || !req.body.email) {
+    } else if (!req.body.phone || !req.body.email) {
         requestErrorHandler(res, 400, "userId or email address not found in request body.");
     } else {
         knex.insert(body).into("User")
