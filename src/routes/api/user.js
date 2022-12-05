@@ -115,10 +115,10 @@ user.get("/role/:roleId", (req, res) => {
     } else {
         knex("User").select().where("roles", req.params.roleId)
             .then((signatureArray) => {
-                if (signatureArray.length === 1) {
-                    successHandler(res, signatureArray[0], "GET users based on role id worked!");
+                if (signatureArray.length !=0) {
+                    successHandler(res, signatureArray, "GET users based on role id worked!");
                 } else {
-                    requestErrorHandler(res, `404 - User with userId: ${req.params.roleId} not found.`);
+                    requestErrorHandler(res, `404 - Users with roleId: ${req.params.roleId} not found.`);
                 }
             })
             .catch((error) => {
@@ -126,6 +126,5 @@ user.get("/role/:roleId", (req, res) => {
             })
     }
 })
-
 
 export default user;
