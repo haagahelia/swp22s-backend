@@ -18,7 +18,7 @@ login.post('/login', async (req, res) => {
       res.status(400).send('All field are required')
     }
 
-   const user= await knex("User").select().join("Roles", "User.role_id", "=", "Roles.role_id").where("email", email).then(result => result[0]);
+   const user= await knex("User").select().join("Roles", "User.roles", "=", "Roles.roleId").where("email", email).then(result => result[0]);
 
    console.log(user);
     
