@@ -127,4 +127,14 @@ user.get("/role/:roleId", (req, res) => {
     }
 })
 
+user.get("/couriers/all", (req, res) => {
+        knex("User").select().where("roles", 1).orWhere("roles", 4).orWhere("roles", 6).orWhere("roles", 7)
+            .then((signatureArray) => {
+                successHandler(res, signatureArray, "GET all users !")
+            })
+            .catch((error) => {
+                databaseErrorHandler(res, error, "Could not get the users from DB!")
+            })
+    })
+
 export default user;
