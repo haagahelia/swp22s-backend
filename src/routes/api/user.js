@@ -136,6 +136,6 @@ user.get("/couriers/all", (req, res) => {
                 databaseErrorHandler(res, error, "Could not get the users from DB!")
             })
     })
-
+    
 
 export default user;
