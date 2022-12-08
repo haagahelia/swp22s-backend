@@ -20,13 +20,16 @@ CREATE TABLE IF NOT EXISTS Task (
     created_at          TIMESTAMP       DEFAULT CURRENT_TIMESTAMP(),
     pu_planned_time     TIMESTAMP       NOT NULL,     
     pu_address          VARCHAR(255)    NOT NULL,   
+    courier             INT             NULL,
+
 
     pu_signature_image  LONGTEXT,
     pu_signed_at        TIMESTAMP       NULL ON UPDATE CURRENT_TIMESTAMP(),
     
     PRIMARY KEY (uuid),
     CONSTRAINT fk_OrderType FOREIGN KEY (order_type) REFERENCES OrderType(order_type),
-    CONSTRAINT fk_Country FOREIGN KEY (country_code) REFERENCES Country(id) 
+    CONSTRAINT fk_Country FOREIGN KEY (country_code) REFERENCES Country(id),
+    CONSTRAINT fk_Courier FOREIGN KEY (courier) REFERENCES User(userId) 
 );
 
 CREATE TABLE IF NOT EXISTS User (
