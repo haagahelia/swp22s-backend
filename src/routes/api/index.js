@@ -9,7 +9,7 @@ import user from './user.js';
 import login from './login.js';
 import profile from './profile.js';
 import checkAuth from '../../utils/checkAuth.js';
-
+import userrole from './userrole.js';
 
 const routes = express.Router();
 routes.use('/task', checkAuth, task);
@@ -18,6 +18,7 @@ routes.use('/signature', checkAuth, signature);
 routes.use('/country', checkAuth, country)
 routes.use('/type', checkAuth,orderType)
 routes.use('/user', checkAuth, user)
+routes.use('/role', checkAuth, userrole);
 routes.use('/profile', checkAuth, profile)
 routes.use('/', login)
 

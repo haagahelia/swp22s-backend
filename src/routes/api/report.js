@@ -49,11 +49,11 @@ report.get("/notsigned", (req, res) => {
 // GET report grouped by order_type http:localhost:8777/api/report/by_order_type
 report.get("/by_order_type", (req, res) => {
     knex("Task").select('order_type')
-                .count('order_type', {as: 'total'})
-                .count('pu_signed_at', {as: 'signed'})
-                .max('pu_planned_time', {as: 'last_planned_pickup'})
-                .groupBy("order_type")
-                .orderBy('order_type','asc')
+        .count('order_type', { as: 'total' })
+        .count('pu_signed_at', { as: 'signed' })
+        .max('pu_planned_time', { as: 'last_planned_pickup' })
+        .groupBy("order_type")
+        .orderBy('order_type', 'asc')
         .then((signatureArray) => {
             successHandler(res, signatureArray, "GET report by order type worked!")
         })
@@ -62,4 +62,35 @@ report.get("/by_order_type", (req, res) => {
         })
 })
 
+// GET report grouped by courier http:localhost:8777/api/report/courier/
+report.get("/courier/", (req, res) => {
+    knex("Task").select('courier')
+        .count('uuid', { as: 'amount of orders' })
+        .groupBy("courier")
+        .then((signatureArray) => {
+            successHandler(res, signatureArray, "GET report by courier worked!")
+        })
+        .catch((error) => {
+            databaseErrorHandler(res, error, "Could not get the report by order type from DB!")
+        })
+})
+
+// GET report grouped by courier id http:localhost:8777/api/report/courier/:id
+report.get("/courier/:id", (req, res) => {
+    knex("Task").select('courier')
+    .where("courier", req.params.id)
+        .count('uuid', { as: 'amount of orders' })
+        .then((signatureArray) => {
+            successHandler(res, signatureArray, "GET report by courier worked!")
+        })
+        .catch((error) => {
+            databaseErrorHandler(res, error, "Could not get the report by order type from DB!")
+        })
+})
+
+
+
+
 export default report;
+
+//  .count('uuid', { as: 'total amount of orders' })
