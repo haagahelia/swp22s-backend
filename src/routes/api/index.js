@@ -7,6 +7,7 @@ import country from './country.js';
 import orderType from './orderType.js';
 import user from './user.js';
 import login from './login.js';
+import profile from './profile.js';
 import checkAuth from '../../utils/checkAuth.js';
 
 
@@ -17,6 +18,7 @@ routes.use('/signature', checkAuth, signature);
 routes.use('/country', checkAuth, country)
 routes.use('/type', checkAuth,orderType)
 routes.use('/user', checkAuth, user)
+routes.use('/profile', checkAuth, profile)
 routes.use('/', login)
 
 export default routes;
